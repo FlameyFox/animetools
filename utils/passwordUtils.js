@@ -21,7 +21,9 @@ export function generatePassword(
     }
 
     const randomIndex = Math.floor(Math.random() * availableWords.length);
+
     let word = capitalizeFirstLetter(availableWords[randomIndex]);
+
     if (useLeet) {
       word = toLeetSpeak(word);
     }

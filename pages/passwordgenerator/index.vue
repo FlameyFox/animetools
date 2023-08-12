@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="max-w-5xl mx-auto py-8 px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
+      class="max-w-6xl mx-auto py-12 px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
       <div class="flex gap-8">
         <div>
           <label class="flex items-center">

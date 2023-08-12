@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center gap-4 mt-8">
-    <div class="bg-purple-600/20 py-5 px-7 text-2xl rounded-lg w-full">
+    <div class="bg-purple-600/20 p-5 text-xl rounded-lg w-full">
       {{ password }}
     </div>
     <button
