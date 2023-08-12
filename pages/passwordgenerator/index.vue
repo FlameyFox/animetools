@@ -1,51 +1,73 @@
 <template>
-    <div>
-      <div>
-        <label>
-          <input type="checkbox" v-model="useLeet" /> Use Leet Speak
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" v-model="useEnhancements" /> Use Enhancements
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" v-model="useHyphens" /> Use Hyphens
-        </label>
-      </div>
-      <div>
-        <label>
-          Number of Words:
-          <select v-model="numWords">
-            <option v-for="count in wordCounts" :key="count" :value="count">
-              {{ count }}
-            </option>
-          </select>
-        </label>
-      </div>
-      <div>
-        <label>
-          Theme:
-          <select v-model="selectedTheme">
-            <option value="" selected>All Themes</option>
-            <option value="naruto">Naruto</option>
-            <option value="aot">Attack on Titan</option>
-            <!-- Add more themes as needed -->
-          </select>
-        </label>
-      </div>
-    <button @click="generate">Generate Password</button>
-    <PasswordGeneratorPasswordDisplay :password="password" />
-    <p v-if="!isDataLoaded">Loading animewords....</p>
-    <p v-if="isGenerating">Generating...</p>
+  <div>
     <div
-      v-if="!isGenerating && password"
-      :class="['strength-meter', passwordStrengthClass]">
-      {{ passwordStrengthText }}
+      class="max-w-5xl mx-auto py-8 px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
+      <div class="flex gap-8">
+        <div>
+          <label class="flex items-center">
+            <input
+              class="bg-purple-600/20 mr-2 p-3 rounded-md appearance-none checked:bg-purple-600"
+              type="checkbox"
+              v-model="useLeet" />
+            Use Leet Speak
+          </label>
+        </div>
+        <div>
+          <label class="flex items-center">
+            <input
+              class="bg-purple-600/20 mr-2 p-3 rounded-md appearance-none checked:bg-purple-600"
+              type="checkbox"
+              v-model="useEnhancements" />
+            Use Enhancements
+          </label>
+        </div>
+        <div>
+          <label class="flex items-center">
+            <input
+              class="bg-purple-600/20 mr-2 p-3 rounded-md appearance-none checked:bg-purple-600"
+              type="checkbox"
+              v-model="useHyphens" />
+            Use Hyphens
+          </label>
+        </div>
+      </div>
+      <div class="flex gap-8 my-4">
+        <div>
+          <label class="flex items-center">
+            Number of Words:
+            <select
+              class="bg-purple-600/20 ml-2 p-3 rounded-md"
+              v-model="numWords">
+              <option
+                v-if="wordCounts"
+                v-for="count in wordCounts"
+                :key="count"
+                :value="count">
+                {{ count }}
+              </option>
+            </select>
+          </label>
+        </div>
+        <PasswordGeneratorThemeSelect
+          :selectedTheme="selectedTheme"
+          @update:selectedTheme="selectedTheme = $event" />
+      </div>
+      <p v-if="!isDataLoaded">Loading animewords....</p>
+      <button
+        class="ml-auto my-4 bg-purple-600 py-4 px-8 text-lg rounded-xl"
+        @click="generate">
+        Generate Password
+      </button>
+      <PasswordGeneratorPasswordDisplay :password="password" />
+
+      <div
+        v-if="password"
+        class="rounded-lg p-2 mt-4 w-32 text-sm text-center bg-purple-600/20 transition-all"
+        :class="['strength-meter', passwordStrengthClass]">
+        {{ passwordStrengthText }}
+      </div>
+      <p v-if="isGenerating">Generating...</p>
     </div>
-    <button @click="copyToClipboard">Copy to Clipboard</button>
   </div>
 </template>
 
@@ -68,12 +90,12 @@ const useLeet = ref(false);
 const useEnhancements = ref(false);
 const useHyphens = ref(true);
 
-const selectedTheme = ref("");
+const selectedTheme = ref("all"); // default to all
 
 const fetchWordsFromSupabase = async () => {
   let query = supabase.from("phrases").select("phrase");
 
-  if (selectedTheme.value) {
+  if (selectedTheme.value && selectedTheme.value !== "all") {
     query = query.eq("theme", selectedTheme.value);
   }
 
@@ -94,17 +116,6 @@ const password = ref("");
 watch(selectedTheme, () => {
   fetchWordsFromSupabase();
 });
-
-const copyToClipboard = () => {
-  navigator.clipboard
-    .writeText(password.value)
-    .then(() => {
-      console.log("Password copied to clipboard!");
-    })
-    .catch((err) => {
-      console.error("Could not copy password: ", err);
-    });
-};
 
 const passwordStrengthClass = computed(() =>
   evaluatePasswordStrength(password.value)
@@ -144,36 +155,6 @@ const generate = async () => {
 
   isGenerating.value = false;
 };
+
+generate();
 </script>
-
-<style scoped>
-.strength-meter {
-  height: 20px;
-  width: 200px;
-  border: 1px solid #000;
-  text-align: center;
-  color: #fff;
-}
-
-.strength-meter.very-weak {
-  background-color: red;
-}
-
-.strength-meter.weak {
-  background-color: orange;
-}
-
-.strength-meter.medium {
-  background-color: yellow;
-  color: #000; /* Text color changed for better visibility */
-}
-
-.strength-meter.strong {
-  background-color: lightgreen;
-  color: #000; /* Text color changed for better visibility */
-}
-
-.strength-meter.very-strong {
-  background-color: green;
-}
-</style>
