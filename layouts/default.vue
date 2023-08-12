@@ -15,4 +15,7 @@
 .page-leave-to {
   opacity: 0;
 }
+.router-link-active{
+  @apply border-b-purple-600 border-b;
+}
 </style>

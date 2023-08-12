@@ -22,7 +22,7 @@ function rateLimiter(req, maxRequests, windowMs) {
 import { characters } from "./narutoData";
 
 export default defineEventHandler((event) => {
-  const isWithinLimit = rateLimiter(event.req, 1000, 15 * 60 * 1000); // 1000 request per 15 minutes
+  const isWithinLimit = rateLimiter(event.req, 1000, 15 * 60 * 1000); // 100 request per 15 minutes
 
   if (!isWithinLimit) {
     return {
@@ -34,6 +34,6 @@ export default defineEventHandler((event) => {
   // Send characters data
   return {
     status: 200,
-    characters,
+    body: characters,
   };
 });

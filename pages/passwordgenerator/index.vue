@@ -2,6 +2,7 @@
   <div>
     <div
       class="max-w-6xl mx-auto py-12 px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
+      <h1 class="text-center text-6xl mb-8">Anime Password Generator</h1>
       <div class="flex gap-8">
         <div>
           <label class="flex items-center">
