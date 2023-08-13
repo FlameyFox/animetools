@@ -3,13 +3,16 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/supabase",
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/robots",
     "nuxt-simple-sitemap",
+    "nuxt-simple-robots",
   ],
   devtools: { enabled: true },
   plugins: [{ src: "~/plugins/vercel.ts", mode: "client" }],
   supabase: {
     redirect: false,
+  },
+  site: {
+    url: "https://animetools.io",
   },
   app: {
     keepalive: true,

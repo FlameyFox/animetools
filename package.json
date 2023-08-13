@@ -15,11 +15,11 @@
     "@types/node": "^18.17.3",
     "add": "^2.0.6",
     "nuxt": "^3.6.5",
+    "nuxt-simple-robots": "^3.1.0",
     "nuxt-simple-sitemap": "^3.1.5",
     "yarn": "^1.22.19"
   },
   "dependencies": {
-    "@nuxtjs/robots": "^3.0.0",
     "@vercel/analytics": "^1.0.2"
   }
 }
