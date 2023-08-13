@@ -30,3 +30,15 @@
     </div>
   </div>
 </template>
+
+<script setup>
+useSeoMeta({
+  title: "animetools.io - Data Sets",
+  ogTitle: "animetools.io - Data Sets",
+  description:
+    "Anime-inspired data sets: elevate your next proeject, by using your favourite anime characters as your dummy data!",
+  ogDescription:
+    "Anime-inspired data sets: elevate your next proeject, by using your favourite anime characters as your dummy data!",
+  twitterCard: "summary_large_image",
+});
+</script>

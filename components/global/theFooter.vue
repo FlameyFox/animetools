@@ -15,7 +15,7 @@
           target="_blank"
           class="text-slate-400 text-md"
           to="https://usefathom.com/ref/GJRIYY">
-          Support privacy and use cookieless tracking with Fathom ✨
+          Support privacy and use cookieless tracking with Fathom 💜
         </nuxt-link>
       </div>
       <div class="mt-8 text-slate-500">
