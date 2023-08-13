@@ -69,10 +69,61 @@
       </div>
       <p v-if="isGenerating">Generating...</p>
     </div>
+    <div class="mt-32 max-w-7xl mx-auto bg-slate-800/40 mb-32 p-12 rounded-lg">
+      <h2 class="text-4xl mb-4">Merging Anime Magic with Cybersecurity ✨</h2>
+      <p>
+        Hello anime enthusiast! If you've ever been vexed by forgettable
+        passwords, we've got a solution that's not just robust but also
+        resonates with your love for anime.
+      </p>
+      <h3 class="text-2xl mt-8 mb-2">Why Choose Anime-Inspired Passwords?</h3>
+      <strong>1. Distinctive & Dynamic:</strong>
+      <p>
+        With the vast universe of anime characters, iconic phrases, and
+        unforgettable moves, these passwords stand out, making them hard for
+        intruders to guess.
+      </p>
+      <strong class="mt-2 block">2. Easier to Recall:</strong>
+      <p>
+        Rather than deciphering cryptic combinations, imagine a password
+        inspired by your favorite anime moment. Memorable, right?
+      </p>
+      <strong class="mt-2 block">3. A Personal Touch:</strong>
+      <p>
+        Secure your digital spaces with passwords that hold a special place in
+        your heart, blending utility with a touch of nostalgia.
+      </p>
+      <h3 class="text-2xl mt-8 mb-2">Here's How to Dive In</h3>
+      <p>
+        Simply choose a specific anime or opt for a mix of all of them. The
+        generator will work its magic, blending elements from selected themes to
+        craft the perfect password. Whether you're a "One Piece" fanatic or have
+        a soft spot for "My Neighbor Totoro", there's something for everyone.
+      </p>
+      <h3 class="text-2xl mt-8 mb-2">
+        Level Up Your Cybersecurity with Anime Panache
+      </h3>
+      <p>
+        In today's digital era, a strong password is non-negotiable. But who
+        said it can't be fun and personalized? With this generator, not only do
+        you strengthen your online barriers, but you also do so with a touch of
+        anime elegance.
+      </p>
+    </div>
   </div>
 </template>
 
 <script setup>
+useSeoMeta({
+  title: "animetools.io - Password Generator",
+  ogTitle: "animetools.io - Password Generator",
+  description:
+    "Anime-inspired password generator: Combine your favorite anime names and phrases to create strong, memorable passwords. Elevate your online security with a unique anime twist!",
+  ogDescription:
+    "Anime-inspired password generator: Combine your favorite anime names and phrases to create strong, memorable passwords. Elevate your online security with a unique anime twist!",
+  twitterCard: "summary_large_image",
+});
+
 const supabase = useSupabaseClient();
 import { ref, watch, computed } from "vue";
 import {

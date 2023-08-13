@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/supabase", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/supabase", "@nuxtjs/tailwindcss", "@nuxtjs/robots"],
   devtools: { enabled: true },
   supabase: {
     redirect: false,
@@ -9,6 +9,13 @@ export default defineNuxtConfig({
     keepalive: true,
     head: {
       title: "animetools.io",
+      meta: [
+        {
+          name: "description",
+          content:
+            "A selection of awesome tools for your proeject - all with an anime twist!",
+        },
+      ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         {

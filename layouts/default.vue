@@ -1,7 +1,7 @@
 <template>
   <div class="bg-slate-900 text-gray-200">
     <theHeader />
-    <nuxtPage class="min-h-screen" />
+    <nuxtPage class="min-h-[60vh]" />
     <theFooter />
   </div>
 </template>

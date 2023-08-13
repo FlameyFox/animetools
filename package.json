@@ -17,5 +17,7 @@
     "nuxt": "^3.6.5",
     "yarn": "^1.22.19"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@nuxtjs/robots": "^3.0.0"
+  }
 }
