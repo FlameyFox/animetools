@@ -1,9 +1,11 @@
 <template>
   <div>
     <div
-      class="max-w-6xl mx-auto py-12 px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
-      <h1 class="text-center text-6xl mb-8">Anime Password Generator</h1>
-      <div class="flex gap-8">
+      class="max-w-[90vw] md:max-w-6xl mx-auto p-8 md:py-12 md:px-16 rounded-2xl bg-slate-900 mt-20 md:mt-32 shadow-2xl shadow-purple-600/50">
+      <h1 class="text-center text-3xl md:text-6xl mb-8">
+        Anime Password Generator
+      </h1>
+      <div class="flex md:flex-row flex-col gap-4 md:gap-8">
         <div>
           <label class="flex items-center">
             <input
@@ -32,7 +34,7 @@
           </label>
         </div>
       </div>
-      <div class="flex gap-8 my-4">
+      <div class="flex md:flex-row flex-col gap-4 md:gap-8 my-4">
         <div>
           <label class="flex items-center">
             Number of Words:
@@ -67,9 +69,12 @@
         :class="['strength-meter', passwordStrengthClass]">
         {{ passwordStrengthText }}
       </div>
-      <p v-if="isGenerating">Generating...</p>
+      <div class="min-h-[30px] mt-1">
+        <p v-if="isGenerating" class="text-purple-300 text-lg">Generating...</p>
+      </div>
     </div>
-    <div class="mt-32 max-w-7xl mx-auto bg-slate-800/40 mb-32 p-12 rounded-lg">
+    <div
+      class="mt-24 md:mt-32 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/40 mb-32 p-12 rounded-lg">
       <h2 class="text-4xl mb-4">Merging Anime Magic with Cybersecurity ✨</h2>
       <p>
         Hello anime enthusiast! If you've ever been vexed by forgettable

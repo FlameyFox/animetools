@@ -1,13 +1,13 @@
 <template>
   <div>
     <div
-      class="max-w-6xl mx-auto py-12 px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
-      <h2 class="text-center text-6xl mb-2">Data sets</h2>
+      class="max-w-[90vw] md:max-w-6xl mx-auto p-8 md:py-12 md:px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
+      <h1 class="text-center text-3xl md:text-6xl mb-8">Data sets</h1>
       <h4 class="mb-8 text-center">
-        Currently each limited to 100 requests per 15 minutes. Subject to
+        Currently each api is limited to 100 requests per 15 minutes. Subject to
         change.
       </h4>
-      <div class="grid grid-cols-3 gap-4">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         <nuxt-link
           to="/api/naruto"
           target="_blank"
