@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   modules: ["@nuxtjs/supabase", "@nuxtjs/tailwindcss", "@nuxtjs/robots"],
   devtools: { enabled: true },
+  plugins: [{ src: "~/plugins/vercel.ts", mode: "client" }],
   supabase: {
     redirect: false,
   },
