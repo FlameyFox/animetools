@@ -55,7 +55,11 @@
           :selectedTheme="selectedTheme"
           @update:selectedTheme="selectedTheme = $event" />
       </div>
-      <p v-if="!isDataLoaded">Loading animewords....</p>
+      <div class="min-h-[30px] mt-1">
+        <p v-if="!isDataLoaded" class="text-purple-300 text-lg">
+          Loading animewords....
+        </p>
+      </div>
       <button
         class="ml-auto my-4 bg-purple-600 py-4 px-8 text-lg rounded-xl"
         @click="generate">
@@ -68,9 +72,6 @@
         class="rounded-lg p-2 mt-4 w-32 text-sm text-center bg-purple-600/20 transition-all"
         :class="['strength-meter', passwordStrengthClass]">
         {{ passwordStrengthText }}
-      </div>
-      <div class="min-h-[30px] mt-1">
-        <p v-if="isGenerating" class="text-purple-300 text-lg">Generating...</p>
       </div>
     </div>
     <div
@@ -137,7 +138,6 @@ import {
 } from "~/utils/passwordUtils";
 
 const isDataLoaded = ref(false);
-const isGenerating = ref(false);
 let words = [];
 
 const numWords = ref(3); // Default to 3 words
@@ -150,6 +150,7 @@ const useHyphens = ref(true);
 const selectedTheme = ref("all"); // default to all
 
 const fetchWordsFromSupabase = async () => {
+  isDataLoaded.value = false;
   let query = supabase.from("phrases").select("phrase");
 
   if (selectedTheme.value && selectedTheme.value !== "all") {
@@ -166,9 +167,9 @@ const fetchWordsFromSupabase = async () => {
   }
 };
 
-fetchWordsFromSupabase();
-
 const password = ref("");
+
+await fetchWordsFromSupabase();
 
 watch(selectedTheme, () => {
   fetchWordsFromSupabase();
@@ -194,9 +195,10 @@ const passwordStrengthText = computed(() => {
 });
 
 const generate = async () => {
-  isGenerating.value = true;
 
-  await fetchWordsFromSupabase();
+  if (!words) {
+    await fetchWordsFromSupabase();
+  }
 
   if (isDataLoaded.value) {
     password.value = generatePassword(
@@ -210,7 +212,6 @@ const generate = async () => {
     console.warn("Data is still loading. Please wait.");
   }
 
-  isGenerating.value = false;
 };
 
 generate();
