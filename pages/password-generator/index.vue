@@ -195,7 +195,6 @@ const passwordStrengthText = computed(() => {
 });
 
 const generate = async () => {
-
   if (!words) {
     await fetchWordsFromSupabase();
   }
@@ -211,7 +210,6 @@ const generate = async () => {
   } else {
     console.warn("Data is still loading. Please wait.");
   }
-
 };
 
 generate();

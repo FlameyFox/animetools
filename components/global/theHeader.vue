@@ -10,7 +10,9 @@
       </div>
 
       <nav class="flex items-center text-md gap-6 md:gap-12 md:text-lg">
-        <nuxt-link class="border-b border-b-transparent" to="/passwordgenerator"
+        <nuxt-link
+          class="border-b border-b-transparent"
+          to="/password-generator"
           >Password Gen</nuxt-link
         >
         <nuxt-link class="border-b border-b-transparent" to="/datasets"
