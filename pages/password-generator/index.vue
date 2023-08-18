@@ -35,20 +35,17 @@
         </div>
       </div>
       <div class="flex md:flex-row flex-col gap-4 md:gap-8 my-4">
-        <div>
+        <div class="flex md:flex-row flex-col">
+          <div class="flex items-center">Number of Words: {{ numWords }}</div>
           <label class="flex items-center">
-            Number of Words:
-            <select
+            <input
               class="bg-purple-600/20 ml-2 p-3 rounded-md"
-              v-model="numWords">
-              <option
-                v-if="wordCounts"
-                v-for="count in wordCounts"
-                :key="count"
-                :value="count">
-                {{ count }}
-              </option>
-            </select>
+              type="range"
+              v-model="sliderValue"
+              :min="minWordCount"
+              :max="maxWordCount"
+              step="1"
+              @input="updateNumWords" />
           </label>
         </div>
         <PasswordGeneratorThemeSelect
@@ -140,8 +137,18 @@ import {
 const isDataLoaded = ref(false);
 let words = [];
 
-const numWords = ref(3); // Default to 3 words
+//const numWords = ref(3); // Default to 3 words
+
 const wordCounts = Array.from({ length: 8 }, (_, i) => i + 3); // This will create an array [3, 4, 5, ..., 10]
+
+const sliderValue = ref(3); // This will bind directly to the range input.
+const minWordCount = computed(() => Math.min(...wordCounts));
+const maxWordCount = computed(() => Math.max(...wordCounts));
+
+const updateNumWords = () => {
+  numWords.value = wordCounts[sliderValue.value - minWordCount.value];
+};
+const numWords = ref(minWordCount.value);
 
 const useLeet = ref(false);
 const useEnhancements = ref(false);

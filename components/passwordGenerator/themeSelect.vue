@@ -6,6 +6,7 @@
         <option value="all">All Themes</option>
         <option value="naruto">Naruto</option>
         <option value="aot">Attack on Titan</option>
+        <option value="jujutsukaisen">Jujutsu Kaisen</option>
         <!-- Add more themes as needed -->
       </select>
     </label>
