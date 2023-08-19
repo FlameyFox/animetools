@@ -1,10 +1,10 @@
 # 🌸 animetools.io
 
 ### TODO:
-[] Color themes
-[] More data sets
-[] More tools
-[] Design rework
+- [ ] Color themes
+- [ ] More data sets
+- [ ] More tools
+- [ ] Design rework
 
 
 
