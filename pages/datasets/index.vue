@@ -52,17 +52,53 @@
         </nuxt-link>
       </div>
     </div>
+    <div
+      class="mt-24 md:mt-32 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/40 mb-32 p-12 rounded-lg">
+      <h2 class="text-4xl mb-4">Anime Datasets: Because Why Not? ✨</h2>
+      <p>
+        Hey there, anime fan! Ever thought about mixing work with a bit of anime
+        fun? Well, that's exactly what we're offering here. Imagine using Naruto
+        or Eren Yeager as your test data. Cool, right?
+      </p>
+      <h3 class="text-2xl mt-8 mb-2">Instant connection</h3>
+      <p>
+        Who wouldn't want to work with data that reminds them of their favorite
+        anime binge sessions? It's like having a mini anime marathon, but, you
+        know, while working.
+      </p>
+      <h3 class="text-2xl mt-8 mb-2">So much variety</h3>
+      <p>
+        Anime characters aren't just about cool moves and epic battles. They've
+        got histories, quirks, and a ton of attributes. Perfect for mixing
+        things up in your projects.
+      </p>
+      <h3 class="text-2xl mt-8 mb-2">Lighten up the mood</h3>
+      <p>
+        Data work can get a bit... yawn... sometimes. But throw in some anime
+        characters, and suddenly it's a whole lot more interesting.
+      </p>
+      <h3 class="text-2xl mt-8 mb-2">Stay tuned for more</h3>
+      <p>
+        We're just getting started. More of your favorite characters from other
+        epic series are on the way. So, keep an eye out!
+      </p>
+      <p>
+        Just a heads up, though – watch out for spoilers! We wouldn't want to
+        ruin the next big plot twist for you. Dive in, have fun, and let anime
+        give your projects that extra spark!
+      </p>
+    </div>
   </div>
 </template>
 
 <script setup>
 useSeoMeta({
-  title: "animetools.io - Data Sets",
-  ogTitle: "animetools.io - Data Sets",
+  title: "Anime Datasets for Projects | Naruto, Attack on Titan & More!",
+  ogTitle: "Anime Datasets for Projects | Naruto, Attack on Titan & More!",
   description:
-    "Anime-inspired data sets: elevate your next proeject, by using your favourite anime characters as your dummy data!",
+    "Dive into our unique anime datasets! From Naruto to Attack on Titan, elevate your projects with data from your favorite characters. Perfect for anime fans looking to blend work with a touch of otaku fun. Stay tuned for more additions!",
   ogDescription:
-    "Anime-inspired data sets: elevate your next proeject, by using your favourite anime characters as your dummy data!",
+    "Dive into our unique anime datasets! From Naruto to Attack on Titan, elevate your projects with data from your favorite characters. Perfect for anime fans looking to blend work with a touch of otaku fun. Stay tuned for more additions!",
   twitterCard: "summary_large_image",
 });
 </script>

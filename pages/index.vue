@@ -10,3 +10,15 @@
     </div>
   </div>
 </template>
+
+<script setup>
+useSeoMeta({
+  title: "AnimeTools.io | Your Go-To Hub for Anime-Themed Tools",
+  ogTitle: "AnimeTools.io | Your Go-To Hub for Anime-Themed Tools",
+  description:
+    "Welcome to AnimeTools.io! Dive into a unique collection of tools inspired by your favorite animes. From password generators to character datasets, we've got the perfect blend of utility and otaku fun. Created by FlameyFox and always evolving!",
+  ogDescription:
+    "Welcome to AnimeTools.io! Dive into a unique collection of tools inspired by your favorite animes. From password generators to character datasets, we've got the perfect blend of utility and otaku fun. Created by FlameyFox and always evolving!",
+  twitterCard: "summary_large_image",
+});
+</script>
