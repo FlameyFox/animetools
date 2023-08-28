@@ -72,10 +72,10 @@
       </div>
     </div>
     <div
-      class="mt-24 md:mt-32 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/40 mb-32 p-12 rounded-lg">
+      class="mt-24 md:mt-32 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/10 mb-32 p-12 rounded-lg">
       <h2 class="text-4xl mb-4">Merging Anime Magic with Cybersecurity ✨</h2>
       <p>
-        Hello anime enthusiast! If you've ever been vexed by forgettable
+        Hello anime lover!<br />If you've ever been vexed by forgettable
         passwords, we've got a solution that's not just robust but also
         resonates with your love for anime.
       </p>

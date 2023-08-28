@@ -53,7 +53,7 @@
       </div>
     </div>
     <div
-      class="mt-24 md:mt-32 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/40 mb-32 p-12 rounded-lg">
+      class="mt-24 md:mt-32 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/10 mb-32 p-12 rounded-lg">
       <h2 class="text-4xl mb-4">Anime Datasets: Because Why Not? ✨</h2>
       <p>
         Hey there, anime fan! Ever thought about mixing work with a bit of anime
