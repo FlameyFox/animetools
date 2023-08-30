@@ -1,11 +1,12 @@
 # 🌸 animetools.io
 
 ### TODO:
-- [ ] Color themes
+- [-] Color themes
 - [ ] More data sets
 - [ ] More tools
 - [ ] Design rework
 - [ ] Better frontpage / landing page
+- [ ] Blog for more content and SEO purposes
 
 
 
