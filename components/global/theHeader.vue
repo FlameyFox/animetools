@@ -9,15 +9,26 @@
         >
       </div>
 
-      <nav class="flex items-center text-md gap-6 md:gap-12 md:text-lg">
+      <nav
+        class="flex items-center mt-4 sm:mt-0 flex-col sm:flex-row text-md gap-2 sm:gap-12 md:text-lg">
         <nuxt-link
-          class="border-b border-b-transparent"
+          class="border-b pb-2 border-b-transparent transition-all"
           to="/password-generator"
           >Password Gen</nuxt-link
         >
-        <nuxt-link class="border-b border-b-transparent" to="/datasets"
+        <nuxt-link
+          class="border-b pb-2 border-b-transparent transition-all"
+          to="/datasets"
           >Data sets</nuxt-link
         >
+        <nuxt-link
+          class="border-b pb-2 flex items-center border-b-transparent transition-all"
+          to="/color-palettes"
+          >Color palettes<span
+            class="text-sm tracking-wide py-1 px-2 rounded-md bg-purple-500 ml-2"
+            >NEW</span
+          >
+        </nuxt-link>
       </nav>
     </header>
   </div>
