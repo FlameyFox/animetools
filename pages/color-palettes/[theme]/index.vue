@@ -48,7 +48,9 @@
         </div>
       </div>
       <div v-else>
-        <h3 class="mt-4 bg-slate-800/40 p-4 rounded-lg text-2xl mx-auto w-fit">Colors coming soon!</h3>
+        <h3 class="mt-4 bg-slate-800/40 p-4 rounded-lg text-2xl mx-auto w-fit">
+          Colors coming soon!
+        </h3>
       </div>
     </div>
   </div>
