@@ -5,13 +5,15 @@
     </div>
     <button
       class="w-24 min-h-full self-stretch px-4 transition-all rounded-lg bg-purple-600 text-center text-md"
-      @click="copyToClipboard">
+      @click="copyToClipboard($event)">
       {{ btnLabel }}
     </button>
   </div>
 </template>
 
 <script>
+import confetti from "canvas-confetti";
+
 export default {
   props: {
     password: String,
@@ -22,12 +24,15 @@ export default {
     };
   },
   methods: {
-    copyToClipboard() {
+    copyToClipboard(event) {
       if (this.password) {
         navigator.clipboard
           .writeText(this.password)
           .then(() => {
             console.log("Password copied to clipboard!");
+
+            // Trigger confetti effect
+            this.launchConfetti(event);
 
             // Update button label
             this.btnLabel = "Copied";
@@ -41,6 +46,26 @@ export default {
             console.error("Could not copy password: ", err);
           });
       }
+    },
+    launchConfetti(event) {
+      // Calculate the button's position
+      const rect = event.target.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      // Convert button position to relative position on the screen
+      const confettiOrigin = {
+        x: x / window.innerWidth,
+        y: y / window.innerHeight,
+      };
+
+      // Trigger confetti effect at the button's position
+      confetti({
+        particleCount: 50,
+        spread: 140,
+        origin: confettiOrigin,
+        startVelocity: 20,
+      });
     },
   },
 };

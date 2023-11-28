@@ -9,7 +9,7 @@
         <div>
           <label class="flex items-center">
             <input
-              class="bg-purple-600/20 mr-2 p-3 rounded-md appearance-none checked:bg-purple-600"
+              class="bg-purple-600/20 mr-2 p-3 transition-all rounded-md appearance-none checked:bg-purple-600"
               type="checkbox"
               v-model="useLeet" />
             Use Leet Speak
@@ -18,7 +18,7 @@
         <div>
           <label class="flex items-center">
             <input
-              class="bg-purple-600/20 mr-2 p-3 rounded-md appearance-none checked:bg-purple-600"
+              class="bg-purple-600/20 mr-2 p-3 transition-all rounded-md appearance-none checked:bg-purple-600"
               type="checkbox"
               v-model="useEnhancements" />
             Use Enhancements
@@ -27,7 +27,7 @@
         <div>
           <label class="flex items-center">
             <input
-              class="bg-purple-600/20 mr-2 p-3 rounded-md appearance-none checked:bg-purple-600"
+              class="bg-purple-600/20 mr-2 p-3 transition-all rounded-md appearance-none checked:bg-purple-600"
               type="checkbox"
               v-model="useHyphens" />
             Use Hyphens
@@ -141,14 +141,14 @@ let words = [];
 
 const wordCounts = Array.from({ length: 8 }, (_, i) => i + 3); // This will create an array [3, 4, 5, ..., 10]
 
-const sliderValue = ref(3); // This will bind directly to the range input.
+const sliderValue = ref(5); // This will bind directly to the range input.
 const minWordCount = computed(() => Math.min(...wordCounts));
 const maxWordCount = computed(() => Math.max(...wordCounts));
 
 const updateNumWords = () => {
   numWords.value = wordCounts[sliderValue.value - minWordCount.value];
 };
-const numWords = ref(minWordCount.value);
+const numWords = ref(5);
 
 const useLeet = ref(false);
 const useEnhancements = ref(false);
