@@ -7,6 +7,7 @@
         <option value="naruto">Naruto</option>
         <option value="aot">Attack on Titan</option>
         <option value="jujutsukaisen">Jujutsu Kaisen</option>
+        <option value="dragonball">Dragon Ball</option>
         <!-- Add more themes as needed -->
       </select>
     </label>
