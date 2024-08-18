@@ -34,7 +34,7 @@
           </label>
         </div>
       </div>
-      <div class="flex md:flex-row flex-col gap-4 md:gap-8 my-4">
+      <div class="flex md:flex-row flex-col gap-4 md:gap-8 mt-4">
         <div class="flex md:flex-row flex-col">
           <div class="flex items-center">Number of Words: {{ numWords }}</div>
           <label class="flex items-center">
@@ -52,16 +52,16 @@
           :selectedTheme="selectedTheme"
           @update:selectedTheme="selectedTheme = $event" />
       </div>
-      <div class="min-h-[30px] mt-1">
-        <p v-if="!isDataLoaded" class="text-purple-300 text-lg">
-          Loading animewords....
-        </p>
-      </div>
       <button
         class="ml-auto my-4 bg-purple-600 py-4 px-8 text-lg rounded-xl"
         @click="generate">
         Generate Password
       </button>
+      <div class="min-h-[30px] my-1">
+        <p v-if="!isDataLoaded" class="text-purple-300 text-lg">
+          Loading animewords....
+        </p>
+      </div>
       <PasswordGeneratorPasswordDisplay :password="password" />
 
       <div
@@ -141,14 +141,14 @@ let words = [];
 
 const wordCounts = Array.from({ length: 8 }, (_, i) => i + 3); // This will create an array [3, 4, 5, ..., 10]
 
-const sliderValue = ref(5); // This will bind directly to the range input.
+const sliderValue = ref(3); // This will bind directly to the range input.
 const minWordCount = computed(() => Math.min(...wordCounts));
 const maxWordCount = computed(() => Math.max(...wordCounts));
 
 const updateNumWords = () => {
   numWords.value = wordCounts[sliderValue.value - minWordCount.value];
 };
-const numWords = ref(5);
+const numWords = ref(3);
 
 const useLeet = ref(false);
 const useEnhancements = ref(false);

@@ -4,7 +4,7 @@
       {{ password }}
     </div>
     <button
-      class="w-24 min-h-full self-stretch px-4 transition-all rounded-lg bg-purple-600 text-center text-md"
+      class="w-48 min-h-full self-stretch px-4 transition-all rounded-lg bg-purple-600 text-center text-md"
       @click="copyToClipboard($event)">
       {{ btnLabel }}
     </button>
@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      btnLabel: "Copy",
+      btnLabel: "Copy password",
     };
   },
   methods: {
