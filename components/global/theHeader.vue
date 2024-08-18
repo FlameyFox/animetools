@@ -14,7 +14,7 @@
         <nuxt-link
           class="border-b pb-2 border-b-transparent transition-all"
           to="/password-generator"
-          >Password Gen</nuxt-link
+          >Password Generator</nuxt-link
         >
         <nuxt-link
           class="border-b pb-2 border-b-transparent transition-all"
