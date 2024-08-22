@@ -19,15 +19,15 @@
         <nuxt-link
           class="border-b pb-2 border-b-transparent transition-all"
           to="/datasets"
-          >Data sets</nuxt-link
+          >Data sets<span
+            class="text-sm tracking-wide py-1 px-2 rounded-md bg-purple-500 ml-2"
+            >NEW</span
+          ></nuxt-link
         >
         <nuxt-link
           class="border-b pb-2 flex items-center border-b-transparent transition-all"
           to="/color-palettes"
-          >Color palettes<span
-            class="text-sm tracking-wide py-1 px-2 rounded-md bg-purple-500 ml-2"
-            >NEW</span
-          >
+          >Color palettes
         </nuxt-link>
       </nav>
     </header>

@@ -42,6 +42,18 @@
           </p>
         </nuxt-link>
         <nuxt-link
+          to="/api/demonslayer"
+          target="_blank"
+          class="bg-purple-600/20 py-4 px-6 rounded-lg transition-all translate-y-0 hover:-translate-y-1">
+          <h3 class="text-xl">Demon Slayer: Kimetsu no Yaiba characters</h3>
+          <p class="text-sm text-purple-400/70">
+            25 characters. Multiple attributes.
+          </p>
+          <p class="text-sm font-medium text-purple-300/70 mt-4">
+            Click to see dataset
+          </p>
+        </nuxt-link>
+        <nuxt-link
           to="https://twitter.com/flamey_fox"
           target="_blank"
           class="bg-purple-600/10 py-4 px-6 rounded-lg transition-all translate-y-0 hover:-translate-y-1">
