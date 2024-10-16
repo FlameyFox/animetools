@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="max-w-[90vw] md:max-w-6xl mx-auto p-8 md:py-12 md:px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
+      class="max-w-[90vw] md:max-w-6xl mx-auto md:p-8 p-6 md:py-12 md:px-16 rounded-2xl bg-slate-900 md:mt-32 mt-16 shadow-2xl shadow-purple-600/50">
       <h1 class="text-center text-3xl md:text-6xl mb-8">
         Practice Japanese with AnimeTools
       </h1>
@@ -13,7 +13,7 @@
       </h4>
       <h5 class="mb-16 text-center mt-4">
         <span
-          class="bg-purple-300/80 px-3 py-2 rounded text-purple-900 text-sm font-medium">
+          class="bg-purple-300/80 px-3 py-2 rounded text-purple-900 md:text-sm text-xs min-w-max md:w-fit mx-auto flex font-medium">
           This feature is new and still under development.</span
         >
       </h5>

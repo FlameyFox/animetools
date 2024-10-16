@@ -2,9 +2,9 @@
   <div class="game-container text-center max-w-3xl mx-auto">
     <h1 class="text-4xl mb-8">Japanese Learning Game</h1>
 
-    <div class="flex items-center justify-center gap-8 mt-8">
+    <div class="flex items-center md:flex-row flex-col justify-center md:gap-8 gap-4 md:mt-8 mt-2">
       <!-- Type selection dropdown -->
-      <div class="type-filter mb-8">
+      <div class="type-filter md:mb-8 mb-2 flex md:flex-row items-center flex-col gap-2">
         <label for="type-select" class="mr-2">Choose what to practice:</label>
         <select
           class="bg-purple-600/20 p-3 rounded-md"
@@ -19,7 +19,7 @@
       </div>
 
       <!-- Translation mode switch -->
-      <div class="translation-mode-switch mb-8">
+      <div class="translation-mode-switch flex items-center md:flex-row flex-col md:mb-8 mb-2 gap-2">
         <label for="translation-mode" class="mr-2">Practice:</label>
         <select
           class="bg-purple-600/20 p-3 rounded-md"
@@ -32,12 +32,12 @@
     </div>
 
     <!-- Display current Japanese character/word -->
-    <div v-if="currentItem" class="mt-5 game-box">
+    <div v-if="currentItem" class="md:mt-5 mt-10 game-box">
       <h2 class="text-3xl px-6 py-4 rounded-lg bg-purple-500/50 w-max mx-auto">
         {{ currentItem.japanese }}
       </h2>
 
-      <div class="flex items-center gap-4 mt-8">
+      <div class="flex items-center md:flex-row flex-col gap-4 mt-8">
         <!-- Input field for user to guess the translation -->
         <input
           v-model="userInput"
@@ -51,7 +51,7 @@
           class="bg-purple-600/20 p-5 text-md md:text-xl rounded-lg w-full" />
         <button
           @click="submitAnswer"
-          class="ml-auto my-4 bg-purple-600 py-4 px-8 text-lg rounded-xl">
+          class="ml-auto my-4 md:w-fit w-full bg-purple-600 py-4 px-8 text-lg rounded-xl">
           Submit
         </button>
       </div>
@@ -63,7 +63,7 @@
     </div>
 
     <!-- Score tracking -->
-    <div class="score flex gap-2 max-auto justify-center mt-8">
+    <div class="score flex gap-2 max-auto justify-center md:mt-8 mt-4">
       <p class="bg-teal-500/30 py-1 px-2 rounded">
         Correct: {{ score.correct }}
       </p>
