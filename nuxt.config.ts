@@ -36,6 +36,8 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
   },
   nitro: {
-    preset: "vercel-edge", // Uses Vercel Edge runtime
+    prerender: {
+      routes: ["/"], // Pre-render the homepage
+    },
   },
 });
