@@ -6,7 +6,7 @@
         <nuxt-link
           class="text-lg"
           target="_blank"
-          to="https://twitter.com/flamey_fox"
+          to="https://flameyfox.com/"
           >FlameyFox</nuxt-link
         >
       </div>
