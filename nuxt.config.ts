@@ -40,12 +40,6 @@ export default defineNuxtConfig({
       routes: ["/"], // Pre-render the homepage
     },
   },
-  render: {
-    compressor: require('compression')(), // Use compression to reduce the size of the response body
-    static: {
-      maxAge: '1y', // Cache static assets for 1 year
-    },
-  },
   build: {
     extractCSS: true, // Extract CSS to improve load time
     optimization: {
