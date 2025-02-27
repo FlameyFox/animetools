@@ -25,13 +25,7 @@ export default defineNuxtConfig({
             "A selection of awesome tools for your proeject - all with an anime twist!",
         },
       ],
-      link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.bunny.net/css?family=albert-sans:200,200i,300,300i,400,400i,500,500i,600,600i",
-        },
-      ],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
     pageTransition: { name: "page", mode: "out-in" },
   },
@@ -54,11 +48,12 @@ export default defineNuxtConfig({
     prefetchLinks: true, // Enable link prefetching
   },
   cache: {
-    pages: ['*'], // Cache all pages
+    pages: ["*"], // Cache all pages
     store: {
-      type: 'memory', // Use in-memory cache
+      type: "memory", // Use in-memory cache
       max: 1000, // Maximum number of items in the cache
       ttl: 60 * 60 * 24, // Time to live for cached items (1 day)
     },
   },
+  css: ["~/assets/fonts/albert-sans/font.css"],
 });
