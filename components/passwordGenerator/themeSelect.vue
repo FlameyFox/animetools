@@ -2,7 +2,7 @@
   <div>
     <label class="flex items-center">
       Select anime:
-      <select class="bg-purple-600/20 ml-2 p-3 rounded-md" :value="selectedTheme" @input="updateValue">
+      <select class="bg-[#291c51] ml-2 p-3 rounded-md" :value="selectedTheme" @input="updateValue">
         <option value="all">All Animes</option>
         <option value="naruto">Naruto</option>
         <option value="aot">Attack on Titan</option>
