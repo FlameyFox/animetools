@@ -2,6 +2,11 @@
   <div>
     <div
       class="md:max-w-6xl max-w-[90vw] mx-auto py-12 px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
+      <div class="flex justify-center mb-4">
+        <span class="inline-block bg-purple-700 text-white text-xs font-semibold px-4 py-1 rounded-full shadow-lg tracking-wide">
+          v2 coming soon 🚀
+        </span>
+      </div>
       <h1 class="text-4xl text-center">Your Hub for Anime Tools 🌸</h1>
       <p class="text-lg mt-4 text-center">
         Explore a collection of simple tools, all themed around your favourite
