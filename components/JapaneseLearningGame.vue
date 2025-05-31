@@ -1,13 +1,12 @@
 <template>
-  <div class="game-container text-center max-w-3xl mx-auto">
-    <h1 class="text-4xl mb-8">Japanese Learning Game</h1>
-
-    <div class="flex items-center md:flex-row flex-col justify-center md:gap-8 gap-4 md:mt-8 mt-2">
-      <!-- Type selection dropdown -->
-      <div class="type-filter md:mb-8 mb-2 flex md:flex-row items-center flex-col gap-2">
-        <label for="type-select" class="mr-2">Choose what to practice:</label>
+  <div class="max-w-3xl mx-auto space-y-8">
+    <!-- Controls -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+      <!-- Type selection -->
+      <div class="relative w-full md:w-auto">
+        <label for="type-select" class="block text-sm text-slate-400 mb-2">Practice Type</label>
         <select
-          class="bg-purple-600/20 p-3 rounded-md"
+          class="w-full md:w-auto bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 p-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all"
           id="type-select"
           v-model="selectedType"
           @change="onTypeChange">
@@ -19,10 +18,10 @@
       </div>
 
       <!-- Translation mode switch -->
-      <div class="translation-mode-switch flex items-center md:flex-row flex-col md:mb-8 mb-2 gap-2">
-        <label for="translation-mode" class="mr-2">Practice:</label>
+      <div class="relative w-full md:w-auto">
+        <label for="translation-mode" class="block text-sm text-slate-400 mb-2">Practice Mode</label>
         <select
-          class="bg-purple-600/20 p-3 rounded-md"
+          class="w-full md:w-auto bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 p-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all"
           id="translation-mode"
           v-model="translationMode">
           <option value="translation">Direct Translation</option>
@@ -31,45 +30,45 @@
       </div>
     </div>
 
-    <!-- Display current Japanese character/word -->
-    <div v-if="currentItem" class="md:mt-5 mt-10 game-box">
-      <h2 class="text-3xl px-6 py-4 rounded-lg bg-purple-500/50 w-max mx-auto">
-        {{ currentItem.japanese }}
-      </h2>
+    <!-- Game Content -->
+    <div v-if="currentItem" class="space-y-8">
+      <!-- Japanese Character Display -->
+      <div class="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 text-center">
+        <h2 class="text-4xl md:text-5xl bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text font-bold">
+          {{ currentItem.japanese }}
+        </h2>
+      </div>
 
-      <div class="flex items-center md:flex-row flex-col gap-4 mt-8">
-        <!-- Input field for user to guess the translation -->
+      <!-- Input Area -->
+      <div class="space-y-4">
         <input
           v-model="userInput"
           type="text"
           @keyup.enter="submitAnswer"
-          :placeholder="
-            translationMode === 'translation'
-              ? 'Enter the meaning'
-              : 'Enter the romaji'
-          "
-          class="bg-purple-600/20 p-5 text-md md:text-xl rounded-lg w-full" />
+          :placeholder="translationMode === 'translation' ? 'Enter the meaning' : 'Enter the romaji'"
+          class="w-full bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 p-4 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all" />
+        
         <button
           @click="submitAnswer"
-          class="ml-auto my-4 md:w-fit w-full bg-purple-600 py-4 px-8 text-lg rounded-xl">
+          class="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-medium rounded-lg transition-all">
           Submit
         </button>
       </div>
-    </div>
 
-    <!-- Feedback to the user -->
-    <div v-if="feedback" class="feedback mt-4">
-      <p>{{ feedback }}</p>
-    </div>
+      <!-- Feedback -->
+      <div v-if="feedback" class="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-lg p-4">
+        <p class="text-lg text-center">{{ feedback }}</p>
+      </div>
 
-    <!-- Score tracking -->
-    <div class="score flex gap-2 max-auto justify-center md:mt-8 mt-4">
-      <p class="bg-teal-500/30 py-1 px-2 rounded">
-        Correct: {{ score.correct }}
-      </p>
-      <p class="bg-pink-500/30 py-1 px-2 rounded">
-        Incorrect: {{ score.incorrect }}
-      </p>
+      <!-- Score -->
+      <div class="flex justify-center gap-4">
+        <div class="bg-green-500/20 backdrop-blur-sm border border-green-500/30 px-6 py-2 rounded-lg">
+          <p class="text-green-400">Correct: {{ score.correct }}</p>
+        </div>
+        <div class="bg-red-500/20 backdrop-blur-sm border border-red-500/30 px-6 py-2 rounded-lg">
+          <p class="text-red-400">Incorrect: {{ score.incorrect }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>

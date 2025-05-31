@@ -1,48 +1,71 @@
 <template>
   <div>
+    <!-- Hero Section -->
     <div
-      class="md:max-w-6xl max-w-[90vw] mx-auto py-12 px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
-      <div class="flex justify-center mb-4">
-        <span class="inline-block bg-purple-700 text-white text-xs font-semibold px-4 py-1 rounded-full shadow-lg tracking-wide">
-          v2 coming soon 🚀
-        </span>
+      class="min-h-[60vh] flex items-center justify-center relative overflow-hidden">
+      <div class="absolute inset-0 backdrop-blur-sm"></div>
+      <div class="relative z-10 text-center max-w-[90vw]">
+        <h1
+          class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+          Your Hub for Anime Tools 🌸
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto">
+          Discover a unique collection of tools inspired by your favorite anime
+          series. From password generators to datasets, we've got something
+          special for every otaku!
+        </p>
       </div>
-      <h1 class="text-4xl text-center">Your Hub for Anime Tools 🌸</h1>
-      <p class="text-lg mt-4 text-center">
-        Explore a collection of simple tools, all themed around your favourite
-        animes!
-      </p>
     </div>
+
+    <!-- Anime Sections -->
     <div
-      class="mt-24 md:mt-56 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/10 mb-32 p-12 rounded-lg">
-      <h2 class="text-4xl mb-4">Why animetools.io? ✨</h2>
-      <p>
-        animetools.io is not just another tool website; it's a hub crafted with
-        love for all anime lovers. Whether you're a developer looking for
-        anime-themed datasets or someone seeking a unique password generator,
-        we've got you covered. Our tools are inspired by the rich and diverse
-        world of anime, ensuring that every visit to our site is both useful and
-        entertaining.
-      </p>
-      <div class="flex p-10 mt-20 gap-16">
-        <div>
-          <h3 class="text-2xl mb-2 font-bold">Anime-Themed Tools:</h3>
-          <p>
+      class="max-w-[95vw] lg:max-w-[90vw] mx-auto bg-slate-900/90 mb-16 p-6 md:p-12 rounded-2xl shadow-xl backdrop-blur-sm border border-slate-800/50">
+      <AnimeSection />
+    </div>
+
+    <!-- Features Section -->
+    <div class="mt-24 max-w-[95vw] lg:max-w-[90vw] mx-auto">
+      <div class="text-center mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text inline-block">
+          Why animetools.io? ✨
+        </h2>
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+          More than just another tool website - it's your go-to hub for
+          anime-inspired utilities!
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div
+          class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30 hover:border-purple-500/30 transition-colors">
+          <div class="text-3xl mb-4">🎭</div>
+          <h3 class="text-xl font-bold mb-3">Anime-Themed Tools</h3>
+          <p class="text-slate-300">
             From Naruto-inspired password generators to datasets featuring your
-            favorite My Hero Academia characters, our tools are designed with
-            the anime lover in mind.
-          </p>
-          <h3 class="text-2xl mt-14 mb-2 font-bold">Regular Updates:</h3>
-          <p>
-            Created by FlameyFox, animetools.io is always evolving. Stay tuned
-            for more tools and features inspired by the latest anime trends.
+            favorite Attack on Titan characters, our tools blend utility with
+            anime flair.
           </p>
         </div>
-        <div>
-          <h3 class="text-2xl mb-2 font-bold">Community Driven:</h3>
-          <p>
-            We value feedback from our users. Suggest new tools, report bugs, or
-            join our community discussions to shape the future of animetools.io.
+
+        <div
+          class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30 hover:border-purple-500/30 transition-colors">
+          <div class="text-3xl mb-4">🚀</div>
+          <h3 class="text-xl font-bold mb-3">Regular Updates</h3>
+          <p class="text-slate-300">
+            Stay tuned for new features and tools inspired by the latest anime
+            trends. We're constantly evolving to bring you more amazing
+            utilities!
+          </p>
+        </div>
+
+        <div
+          class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30 hover:border-purple-500/30 transition-colors">
+          <div class="text-3xl mb-4">🤝</div>
+          <h3 class="text-xl font-bold mb-3">Community Driven</h3>
+          <p class="text-slate-300">
+            Your feedback shapes our future. Suggest new tools or to help us
+            grow!
           </p>
         </div>
       </div>
@@ -51,13 +74,17 @@
 </template>
 
 <script setup>
+import AnimeSection from "~/components/AnimeSection.vue";
+
 useSeoMeta({
-  title: "AnimeTools.io | Your Go-To Hub for Anime-Themed Tools",
-  ogTitle: "AnimeTools.io | Your Go-To Hub for Anime-Themed Tools",
+  title:
+    "AnimeTools.io | Your Ultimate Hub for Anime-Inspired Tools & Utilities",
+  ogTitle:
+    "AnimeTools.io | Your Ultimate Hub for Anime-Inspired Tools & Utilities",
   description:
-    "Welcome to AnimeTools.io! Dive into a unique collection of tools inspired by your favorite animes. From password generators to character datasets, we've got the perfect blend of utility and otaku fun. Created by FlameyFox and always evolving!",
+    "Discover AnimeTools.io - your one-stop destination for anime-inspired utilities! From Naruto-themed password generators to My Hero Academia datasets, explore our unique collection of tools designed specifically for anime enthusiasts. Created by FlameyFox and powered by the community.",
   ogDescription:
-    "Welcome to AnimeTools.io! Dive into a unique collection of tools inspired by your favorite animes. From password generators to character datasets, we've got the perfect blend of utility and otaku fun. Created by FlameyFox and always evolving!",
+    "Discover AnimeTools.io - your one-stop destination for anime-inspired utilities! From Naruto-themed password generators to My Hero Academia datasets, explore our unique collection of tools designed specifically for anime enthusiasts. Created by FlameyFox and powered by the community.",
   twitterCard: "summary_large_image",
 });
 </script>

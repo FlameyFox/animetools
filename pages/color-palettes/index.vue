@@ -1,96 +1,85 @@
 <template>
   <div>
-    <div
-      class="max-w-[90vw] md:max-w-6xl mx-auto p-8 md:py-12 md:px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
-      <h1 class="text-center text-3xl md:text-6xl mb-8">Anime Color Themes</h1>
-      <h3 class="text-center">
-        Spice up your projects with some anime themed palettes
-      </h3>
-      <h5 class="mb-16 text-center mt-4">
-        <span
-          class="bg-purple-300/80 px-3 py-2 rounded text-purple-900 text-sm font-medium"
-          >Start by selecting a show or movie</span
-        >
-      </h5>
-      <div class="text-center w-100 p-4" v-if="loading">
-        Loading themes ✨...
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+      <!-- Title Section -->
+      <div class="text-center mb-12 md:mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+          Anime Color Palettes
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 max-w-xl mx-auto">
+          Explore beautiful color combinations inspired by your favorite anime series.
+        </p>
       </div>
-      <div v-else class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
-        <nuxt-link
+
+      <!-- Themes Grid -->
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div
           v-for="theme in themes"
           :key="theme.id"
-          :to="`/color-palettes/${theme.name}`"
-          class="bg-purple-600/20 py-4 px-6 rounded-lg transition-all translate-y-0 hover:-translate-y-1">
-          {{ theme.pretty_name }}
-        </nuxt-link>
+          class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30"
+        >
+          <nuxt-link
+            :to="`/color-palettes/${theme.name}`"
+            class="group block h-full"
+          >
+            <div class="space-y-4">
+              <div class="h-24 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm flex items-center justify-center">
+                <span class="text-3xl">🎨</span>
+              </div>
+              <h3 class="text-xl font-semibold bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+                {{ theme.pretty_name }}
+              </h3>
+            </div>
+          </nuxt-link>
+        </div>
       </div>
-    </div>
-    <div
-      class="mt-24 md:mt-32 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/10 mb-32 p-12 rounded-lg">
-      <h2 class="text-4xl mb-4">
-        Anime Color Palettes: Bringing Stories to Life through Design ✨
-      </h2>
-      <p>
-        Hello, Anime Enthusiast!<br />Breathe life into your projects with
-        vibrant color palettes inspired by your favorite anime.<br />
-        From Naruto's fiery spirit to the soothing tones of My Neighbor Totoro,
-        discover the hues of the anime world.
-      </p>
 
-      <h3 class="text-2xl mt-8 mb-2">Why Opt for Anime-Inspired Themes?</h3>
-      <strong>1. Unique & Captivating:</strong>
-      <p>
-        Each anime carries its aura, its emotion. By adopting these themes, your
-        designs embody these feelings, ensuring they stand out and captivate.
-      </p>
-      <strong class="mt-2 block">2. Dive into Nostalgia:</strong>
-      <p>
-        Remember the excitement of watching an anime episode for the first time?
-        Recapture that emotion with color palettes reminiscent of those iconic
-        moments.
-      </p>
-      <strong class="mt-2 block">3. Endless Inspirations:</strong>
-      <p>
-        With a plethora of anime series and genres, the possibilities are
-        endless. Each theme holds a unique blend of colors ready to inspire.
-      </p>
-      <h3 class="text-2xl mt-8 mb-2">How to Use These Themes?</h3>
-      <p>
-        Explore our grid of anime themes. Once you find a palette that
-        resonates, dive deeper to discover the full spectrum of colors. Whether
-        you're designing a serene landscape inspired by "Studio Ghibli" or a
-        dynamic poster of "One Piece", we've got you covered.
-      </p>
-      <h3 class="text-2xl mt-8 mb-2">
-        Enhance Your Design Narrative with Anime Elegance
-      </h3>
-      <p>
-        In the world of design, narratives matter. And what better narrative
-        than tales that have enthralled millions? By infusing anime-inspired
-        palettes into your projects, not only do you elevate its aesthetics, but
-        you also weave a story waiting to be told.
-      </p>
+      <!-- Feature Cards -->
+      <div class="space-y-12 mt-16">
+        <!-- Design Impact -->
+        <div class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+              Tell Stories Through Color 🎬
+            </h2>
+            <p class="text-lg text-slate-300">
+              Every color palette tells a story. From the vibrant energy of shounen anime to the serene beauty of Studio Ghibli, find the perfect colors to express your vision.
+            </p>
+          </div>
+        </div>
+
+        <!-- Creative Inspiration -->
+        <div class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+              Spark Creativity ✨
+            </h2>
+            <p class="text-lg text-slate-300">
+              Break free from creative blocks with palettes that capture the essence of beloved anime worlds. Perfect for web design, illustrations, and digital art.
+            </p>
+          </div>
+        </div>
+
+        <!-- Easy Integration -->
+        <div class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+              Simple to Use 🚀
+            </h2>
+            <p class="text-lg text-slate-300">
+              Copy color codes with a single click. Each palette comes with HEX codes ready to use in your favorite design tools.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-useSeoMeta({
-  title:
-    "Anime Color Palettes | Elevate Your Designs with Otaku-Inspired Palettes",
-  ogTitle:
-    "Anime Color Palettes | Elevate Your Designs with Otaku-Inspired Palettes",
-  description:
-    "Discover vibrant Anime Color Palettes curated for designers and anime enthusiasts alike. Bring a touch of Naruto, Attack on Titan, and more into your projects with our unique color palettes inspired by iconic anime series.",
-  ogDescription:
-    "Discover vibrant Anime Color Palettes curated for designers and anime enthusiasts alike. Bring a touch of Naruto, Attack on Titan, and more into your projects with our unique color palettes inspired by iconic anime series.",
-  twitterCard: "summary_large_image",
-});
-
 import { ref, onMounted } from "vue";
 
 const supabase = useSupabaseClient();
-
 const themes = ref([]);
 const loading = ref(false);
 
@@ -104,5 +93,15 @@ onMounted(async () => {
     themes.value = data;
   }
   loading.value = false;
+});
+
+useSeoMeta({
+  title: "Anime Color Palettes | Design with Anime-Inspired Colors",
+  ogTitle: "Anime Color Palettes | Design with Anime-Inspired Colors",
+  description:
+    "Discover beautiful color palettes inspired by your favorite anime! From Naruto to Studio Ghibli, find the perfect colors for your next design project.",
+  ogDescription:
+    "Discover beautiful color palettes inspired by your favorite anime! From Naruto to Studio Ghibli, find the perfect colors for your next design project.",
+  twitterCard: "summary_large_image",
 });
 </script>

@@ -1,223 +1,138 @@
 <template>
-  <div>
-    <div
-      class="max-w-[90vw] md:max-w-6xl mx-auto p-8 md:py-12 md:px-16 rounded-2xl bg-slate-900 mt-20 md:mt-32 shadow-2xl shadow-purple-600/50">
-      <h1 class="text-center text-3xl md:text-6xl mb-8">
-        Anime Password Generator
-      </h1>
-      <div class="flex md:flex-row flex-col gap-4 md:gap-8">
-        <div>
-          <label class="flex items-center">
-            <input
-              class="bg-purple-600/20 mr-2 p-3 transition-all rounded-md appearance-none checked:bg-purple-600"
-              type="checkbox"
-              v-model="useLeet" />
-            Use Leet Speak
-          </label>
-        </div>
-        <div>
-          <label class="flex items-center">
-            <input
-              class="bg-purple-600/20 mr-2 p-3 transition-all rounded-md appearance-none checked:bg-purple-600"
-              type="checkbox"
-              v-model="useEnhancements" />
-            Use Enhancements
-          </label>
-        </div>
-        <div>
-          <label class="flex items-center">
-            <input
-              class="bg-purple-600/20 mr-2 p-3 transition-all rounded-md appearance-none checked:bg-purple-600"
-              type="checkbox"
-              v-model="useHyphens" />
-            Use Hyphens
-          </label>
-        </div>
-      </div>
-      <div class="flex md:flex-row flex-col gap-4 md:gap-8 mt-4">
-        <div class="flex md:flex-row flex-col">
-          <div class="flex items-center">Number of Words: {{ numWords }}</div>
-          <label class="flex items-center">
-            <input
-              class="bg-purple-600/20 ml-2 p-3 rounded-md"
-              type="range"
-              v-model="sliderValue"
-              :min="minWordCount"
-              :max="maxWordCount"
-              step="1"
-              @input="updateNumWords" />
-          </label>
-        </div>
-        <PasswordGeneratorThemeSelect
-          :selectedTheme="selectedTheme"
-          @update:selectedTheme="selectedTheme = $event" />
-      </div>
-      <button
-        class="ml-auto my-4 bg-purple-600 py-4 px-8 text-lg rounded-xl"
-        @click="generate">
-        Generate Password
-      </button>
-      <div class="min-h-[30px] my-1">
-        <p v-if="!isDataLoaded" class="text-purple-300 text-lg">
-          Loading animewords....
+  <div class="min-h-screen bg-slate-900">
+    <!-- Background gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-slate-900 to-slate-900 pointer-events-none"></div>
+
+    <!-- Content -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+      <!-- Title Section -->
+      <div class="text-center mb-12 md:mb-16">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+          Anime Password Generator
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 max-w-xl mx-auto">
+          Create secure passwords with an anime twist. Generate unique passwords inspired by anime characters and themes.
         </p>
       </div>
-      <PasswordGeneratorPasswordDisplay :password="password" />
 
-      <div
-        v-if="password"
-        class="rounded-lg p-2 mt-4 w-32 text-sm text-center bg-purple-600/20 transition-all"
-        :class="['strength-meter', passwordStrengthClass]">
-        {{ passwordStrengthText }}
+      <!-- Main Content -->
+      <div class="max-w-2xl mx-auto">
+        <div class="space-y-6 md:space-y-8">
+          <!-- Theme Selection -->
+          <div>
+            <h2 class="text-xl font-semibold mb-4 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+              Choose Theme
+            </h2>
+            <ThemeSelect 
+              :selected-theme="selectedTheme"
+              @update:selected-theme="handleThemeChange" 
+            />
+          </div>
+
+          <!-- Password Display -->
+          <div>
+            <PasswordDisplay 
+              :words="words"
+              :is-loading="!isDataLoaded"
+              :error="errorMessage"
+            />
+          </div>
+
+          <!-- Tips Section -->
+          <div class="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-4 md:p-6">
+            <h3 class="text-xl font-semibold mb-4 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
+              Password Tips 🔐
+            </h3>
+            <ul class="grid md:grid-cols-2 gap-4 text-slate-300">
+              <li class="flex items-start">
+                <span class="text-purple-400 mr-2">•</span>
+                <span>Your password includes references to anime characters and terms</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-purple-400 mr-2">•</span>
+                <span>All passwords are generated client-side for security</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-purple-400 mr-2">•</span>
+                <span>Use the theme selector to get passwords from your favorite series</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-purple-400 mr-2">•</span>
+                <span>Perfect for creating memorable yet secure passwords!</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-    <div
-      class="mt-24 md:mt-32 max-w-[90vw] md:ax-w-7xl mx-auto bg-slate-800/10 mb-32 p-12 rounded-lg">
-      <h2 class="text-4xl mb-4">Merging Anime Magic with Cybersecurity ✨</h2>
-      <p>
-        Hello anime lover!<br />If you've ever been vexed by forgettable
-        passwords, we've got a solution that's not just robust but also
-        resonates with your love for anime.
-      </p>
-      <h3 class="text-2xl mt-8 mb-2">Why Choose Anime-Inspired Passwords?</h3>
-      <strong>1. Distinctive & Dynamic:</strong>
-      <p>
-        With the vast universe of anime characters, iconic phrases, and
-        unforgettable moves, these passwords stand out, making them hard for
-        intruders to guess.
-      </p>
-      <strong class="mt-2 block">2. Easier to Recall:</strong>
-      <p>
-        Rather than deciphering cryptic combinations, imagine a password
-        inspired by your favorite anime moment. Memorable, right?
-      </p>
-      <strong class="mt-2 block">3. A Personal Touch:</strong>
-      <p>
-        Secure your digital spaces with passwords that hold a special place in
-        your heart, blending utility with a touch of nostalgia.
-      </p>
-      <h3 class="text-2xl mt-8 mb-2">Here's How to Dive In</h3>
-      <p>
-        Simply choose a specific anime or opt for a mix of all of them. The
-        generator will work its magic, blending elements from selected themes to
-        craft the perfect password. Whether you're a "One Piece" fanatic or have
-        a soft spot for "My Neighbor Totoro", there's something for everyone.
-      </p>
-      <h3 class="text-2xl mt-8 mb-2">
-        Level Up Your Cybersecurity with Anime Panache
-      </h3>
-      <p>
-        In today's digital era, a strong password is non-negotiable. But who
-        said it can't be fun and personalized? With this generator, not only do
-        you strengthen your online barriers, but you also do so with a touch of
-        anime elegance.
-      </p>
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+import { useSupabaseClient } from '#imports';
+import ThemeSelect from '~/components/passwordGenerator/themeSelect.vue'
+import PasswordDisplay from '~/components/passwordGenerator/passwordDisplay.vue'
+
 useSeoMeta({
-  title: "animetools.io - Password Generator",
-  ogTitle: "animetools.io - Password Generator",
-  description:
-    "Anime-inspired password generator: Combine your favorite anime names and phrases to create strong, memorable passwords. Elevate your online security with a unique anime twist!",
-  ogDescription:
-    "Anime-inspired password generator: Combine your favorite anime names and phrases to create strong, memorable passwords. Elevate your online security with a unique anime twist!",
+  title: "Anime-Themed Password Generator | Create Secure, Fun Passwords",
+  ogTitle: "Anime-Themed Password Generator | Create Secure, Fun Passwords",
+  description: "Generate secure passwords with an anime twist! Our unique password generator combines strong security with your favorite anime references. Perfect for otaku who want both security and style.",
+  ogDescription: "Generate secure passwords with an anime twist! Our unique password generator combines strong security with your favorite anime references. Perfect for otaku who want both security and style.",
+  keywords: "anime password generator, secure password creator, otaku password tool, anime themed passwords, Naruto password generator, Attack on Titan passwords",
   twitterCard: "summary_large_image",
+  ogType: "website",
+  robots: "index, follow",
 });
 
+// State
 const supabase = useSupabaseClient();
-import { ref, watch, computed } from "vue";
-import {
-  generatePassword,
-  evaluatePasswordStrength,
-} from "~/utils/passwordUtils";
-
 const isDataLoaded = ref(false);
-let words = [];
+const errorMessage = ref('');
+const words = ref([]);
+const selectedTheme = ref('all');
 
-//const numWords = ref(3); // Default to 3 words
-
-const wordCounts = Array.from({ length: 8 }, (_, i) => i + 3); // This will create an array [3, 4, 5, ..., 10]
-
-const sliderValue = ref(3); // This will bind directly to the range input.
-const minWordCount = computed(() => Math.min(...wordCounts));
-const maxWordCount = computed(() => Math.max(...wordCounts));
-
-const updateNumWords = () => {
-  numWords.value = wordCounts[sliderValue.value - minWordCount.value];
+// Methods
+const handleThemeChange = async (newTheme) => {
+  selectedTheme.value = newTheme;
+  await fetchWordsFromSupabase();
 };
-const numWords = ref(3);
-
-const useLeet = ref(false);
-const useEnhancements = ref(false);
-const useHyphens = ref(true);
-
-const selectedTheme = ref("all"); // default to all
 
 const fetchWordsFromSupabase = async () => {
   isDataLoaded.value = false;
-  let query = supabase.from("phrases").select("phrase");
+  errorMessage.value = '';
+  
+  try {
+    let query = supabase.from("phrases").select("phrase");
 
-  if (selectedTheme.value && selectedTheme.value !== "all") {
-    query = query.eq("theme", selectedTheme.value);
-  }
+    if (selectedTheme.value && selectedTheme.value !== "all") {
+      query = query.eq("theme", selectedTheme.value);
+    }
 
-  const { data, error } = await query;
+    const { data, error } = await query;
 
-  if (error) {
+    if (error) {
+      throw error;
+    }
+
+    if (data && data.length > 0) {
+      words.value = data.map((item) => item.phrase);
+    } else {
+      throw new Error('No words found for the selected theme');
+    }
+  } catch (error) {
     console.error("Error fetching words:", error);
-  } else if (data) {
-    words = data.map((item) => item.phrase);
+    errorMessage.value = error.message || 'Failed to load anime words';
+    words.value = [];
+  } finally {
     isDataLoaded.value = true;
   }
 };
 
-const password = ref("");
-
+// Initial fetch
 await fetchWordsFromSupabase();
-
-watch(selectedTheme, () => {
-  fetchWordsFromSupabase();
-});
-
-const passwordStrengthClass = computed(() =>
-  evaluatePasswordStrength(password.value)
-);
-
-const passwordStrengthText = computed(() => {
-  switch (passwordStrengthClass.value) {
-    case "very-strong":
-      return "Very Strong";
-    case "strong":
-      return "Strong";
-    case "medium":
-      return "Medium";
-    case "weak":
-      return "Weak";
-    default:
-      return "Very Weak";
-  }
-});
-
-const generate = async () => {
-  if (!words) {
-    await fetchWordsFromSupabase();
-  }
-
-  if (isDataLoaded.value) {
-    password.value = generatePassword(
-      words,
-      numWords.value,
-      useLeet.value,
-      useEnhancements.value,
-      useHyphens.value
-    );
-  } else {
-    console.warn("Data is still loading. Please wait.");
-  }
-};
-
-generate();
 </script>
+
+<style scoped>
+/* Add any additional styles here if needed */
+</style>

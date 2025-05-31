@@ -11,6 +11,12 @@ export function generatePassword(
   useEnhancements = false,
   useHyphens = true
 ) {
+  // Validate input words array
+  if (!Array.isArray(words) || words.length === 0) {
+    console.warn("No words provided for password generation");
+    return "";
+  }
+
   let generatedPassword = "";
   let availableWords = [...words]; // Create a copy of the words array to manipulate
 
