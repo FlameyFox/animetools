@@ -37,8 +37,9 @@
       <!-- Feature Cards -->
       <div class="space-y-12 mt-16">
         <!-- Design Impact -->
-        <div class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30">
-          <div class="max-w-3xl mx-auto">
+        <div
+          class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30 max-w-2xl mx-auto">
+          <div class="max-w-2xl mx-auto">
             <h2 class="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
               Tell Stories Through Color 🎬
             </h2>
@@ -49,8 +50,9 @@
         </div>
 
         <!-- Creative Inspiration -->
-        <div class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30">
-          <div class="max-w-3xl mx-auto">
+        <div
+          class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30 max-w-2xl mx-auto">
+          <div class="max-w-2xl mx-auto">
             <h2 class="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
               Spark Creativity ✨
             </h2>
@@ -61,8 +63,9 @@
         </div>
 
         <!-- Easy Integration -->
-        <div class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30">
-          <div class="max-w-3xl mx-auto">
+        <div
+          class="bg-slate-800/30 p-8 rounded-xl backdrop-blur-sm border border-slate-700/30 max-w-2xl mx-auto">
+          <div class="max-w-2xl mx-auto">
             <h2 class="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text">
               Simple to Use 🚀
             </h2>

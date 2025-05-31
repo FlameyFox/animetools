@@ -4,10 +4,10 @@
       class="flex md:flex-row flex-col justify-center p-4 md:p-8 md:justify-between items-center bg-slate-900/80 backdrop-blur-sm border border-slate-800/30 rounded-2xl mx-auto max-w-[95vw] my-4">
       <div class="flex items-center justify-between w-full md:w-auto">
         <div class="flex flex-col items-center md:items-start">
-          <a
-            href="/"
+          <NuxtLink
+            to="/"
             class="text-2xl md:text-4xl font-bold bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text no-underline"
-            >animetools.io</a
+            >animetools.io</NuxtLink
           >
           <span class="text-slate-400/70 text-xs md:text-sm"
             >v2.0 is out now ✨</span
@@ -41,7 +41,7 @@
               class="group relative py-2 transition-colors hover:text-white">
               {{ link.text }}
               <div
-                class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-gradient-to-r from-purple-300/30 to-pink-300/30 transition-all duration-200 scale-0 router-link-active:scale-100 router-link-active:from-purple-300/50 router-link-active:to-pink-300/50 md:group-hover:scale-100"></div>
+                class="absolute -bottom-[4px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-gradient-to-r from-purple-300/30 to-pink-300/30 transition-all duration-200 scale-0 router-link-active:scale-100 router-link-active:from-purple-300/50 router-link-active:to-pink-300/50 md:group-hover:scale-100"></div>
             </NuxtLink>
           </li>
         </ul>

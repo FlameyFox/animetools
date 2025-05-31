@@ -2,7 +2,7 @@
   <div>
     <!-- Hero Section -->
     <div
-      class="min-h-[60vh] flex items-center justify-center relative overflow-hidden">
+      class="min-h-[55vh] flex items-center justify-center relative overflow-hidden">
       <div class="absolute inset-0 backdrop-blur-sm"></div>
       <div class="relative z-10 text-center max-w-[90vw]">
         <h1
@@ -19,12 +19,12 @@
 
     <!-- Anime Sections -->
     <div
-      class="max-w-[95vw] lg:max-w-[90vw] mx-auto bg-slate-900/90 mb-16 p-6 md:p-12 rounded-2xl shadow-xl backdrop-blur-sm border border-slate-800/50">
+      class="max-w-[95vw] w-[1440px] mx-auto bg-slate-900/90 mb-16 p-6 md:p-12 rounded-2xl shadow-xl backdrop-blur-sm border border-slate-800/50">
       <AnimeSection />
     </div>
 
     <!-- Features Section -->
-    <div class="mt-24 max-w-[95vw] lg:max-w-[90vw] mx-auto">
+    <div class="mt-24 max-w-[95vw] w-[1440px] mx-auto">
       <div class="text-center mb-16">
         <h2
           class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-300 to-pink-300 text-transparent bg-clip-text inline-block">

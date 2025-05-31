@@ -1,14 +1,16 @@
-<template>
-  <div>
-    <div
-      class="max-w-[90vw] md:max-w-6xl mx-auto p-8 md:py-12 md:px-16 rounded-2xl bg-slate-900 mt-32 shadow-2xl shadow-purple-600/50">
-      <h5 class="mb-8 text-center mt-4">
+<template>  <div>    <div
+      class="max-w-[90vw] md:max-w-6xl mx-auto p-8 md:py-12 md:px-16 mt-32">
+      <div class="mb-12">
         <nuxt-link
           to="/color-palettes"
-          class="bg-purple-300/80 px-3 py-2 rounded text-purple-900 text-sm font-medium"
-          >Click here to select a different palette</nuxt-link
+          class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors duration-200"
         >
-      </h5>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+          </svg>
+          <span>Back to Palettes</span>
+        </nuxt-link>
+      </div>
       <h1 v-if="theme" class="text-center text-3xl md:text-6xl mb-8">
         {{ theme.pretty_name }}<br />
         Color Palettes
@@ -19,22 +21,21 @@
       <div
         v-if="groupedColors && Object.keys(groupedColors).length"
         class="mt-8 grid sm:grid-cols-2 md:grid-cols-3 gap-16">
-        <div
-          class="p-4 rounded-lg bg-slate-800/40"
+        <div          class="p-6 rounded-xl backdrop-blur-sm bg-slate-800/20 border border-slate-700/30"
           v-for="(colorsArray, character) in groupedColors"
           :key="character">
           <div>
-            <h3 class="text-xl font-semibold mb-4 capitalize">
+            <h3 class="text-2xl font-semibold mb-6 capitalize text-purple-100">
               {{ character }}
             </h3>
-            <div class="flex gap-3 flex-wrap">
+            <div class="flex gap-4 flex-wrap">
               <div
                 v-for="color in colorsArray"
                 :key="color.id"
-                class="rounded bg-slate-800 p-2 w-full">
+                class="rounded-lg bg-slate-800/40 p-3 w-full backdrop-blur-sm border border-slate-700/30">
                 <div
                   :style="{ backgroundColor: color.hex_color }"
-                  class="w-full h-16 rounded color-box"
+                  class="w-full h-20 rounded-lg color-box"
                   @click="copyToClipboard(color)">
                   <span class="color-copy-text"
                     ><p>
@@ -158,20 +159,25 @@ watch(theme, (newTheme) => {
 }
 .color-copy-text p {
   display: block;
-  @apply bg-purple-800;
-  padding: 5px 10px;
-  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 8px;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: all 0.2s ease;
   cursor: pointer;
   z-index: 99;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .color-box:hover .color-copy-text p {
   opacity: 1;
+  transform: translateY(-2px);
 }
 .color-box:hover .color-copy-text {
   opacity: 1;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 </style>

@@ -9,7 +9,7 @@
           <input
             type="checkbox"
             v-model="options.useLeet"
-            class="bg-purple-600/20 mr-3 p-3 transition-all rounded-md appearance-none checked:bg-purple-600 group-hover:bg-purple-600/30" />
+            class="bg-purple-600/20 mr-3 p-3 transition-all rounded-md appearance-none checked:bg-purple-600 group-hover:bg-purple-600" />
           <span class="text-slate-300 group-hover:text-white transition-colors"
             >Leet Speak</span
           >
@@ -18,7 +18,7 @@
           <input
             type="checkbox"
             v-model="options.useEnhancements"
-            class="bg-purple-600/20 mr-3 p-3 transition-all rounded-md appearance-none checked:bg-purple-600 group-hover:bg-purple-600/30" />
+            class="bg-purple-600/20 mr-3 p-3 transition-all rounded-md appearance-none checked:bg-purple-600 group-hover:bg-purple-600" />
           <span class="text-slate-300 group-hover:text-white transition-colors"
             >Enhancements</span
           >
@@ -27,7 +27,7 @@
           <input
             type="checkbox"
             v-model="options.useHyphens"
-            class="bg-purple-600/20 mr-3 p-3 transition-all rounded-md appearance-none checked:bg-purple-600 group-hover:bg-purple-600/30" />
+            class="bg-purple-600/20 mr-3 p-3 transition-all rounded-md appearance-none checked:bg-purple-600 group-hover:bg-purple-600" />
           <span class="text-slate-300 group-hover:text-white transition-colors"
             >Use Hyphens</span
           >

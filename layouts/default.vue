@@ -28,10 +28,10 @@ import TheFooter from '~/components/global/theFooter.vue'
 .page-leave-to {
   opacity: 0;
 }
-.router-link-active {
+nav .router-link-active {
   position: relative;
 }
-.router-link-active::after {
+nav .router-link-active::after {
   content: '';
   position: absolute;
   bottom: -4px;
