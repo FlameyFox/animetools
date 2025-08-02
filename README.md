@@ -105,4 +105,16 @@ If you like this project, please consider [starring the repo](https://github.com
 
 ## 📄 License
 
-MIT
+This project is licensed under the [MIT License](./LICENSE).
+
+You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the codebase for any purpose, including commercial use, provided you include the original copyright and license.
+
+---
+
+**Disclaimer:**  
+All intellectual property and rights to any characters, names, or references from movies, TV shows, anime, or other media mentioned or used in this project belong to their original creators and copyright holders.  
+This project is intended solely for educational purposes. No commercial use or infringement of those rights is intended or implied.
+
+> In short: You can use the code freely, but any anime/movie/TV characters or references remain the property of their respective owners.
+
+See [LICENSE](./LICENSE) for full details.
